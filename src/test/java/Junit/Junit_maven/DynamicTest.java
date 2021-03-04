@@ -1,0 +1,27 @@
+package Junit.Junit_maven;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Arrays;
+import java.util.Collection;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DynamicTest;
+import org.junit.jupiter.api.TestFactory;
+
+public class DynamicTest {
+	
+
+		@TestFactory
+		
+	    Collection<DynamicTest> junit1()
+		{
+	        return Arrays.asList(
+	          DynamicTest.dynamicTest("Add test",
+	            () -> assertEquals(2, Calculator.add(1, 1))),
+	          DynamicTest.dynamicTest("Palindrome test",
+	            () -> assertTrue(StringFunctions.isPlaindrome("radar"))));
+	    }
+		
+	}
